@@ -9,8 +9,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
-USER nobody
-
 RUN apt-get update && apt-get install -y --allow-downgrades --allow-change-held-packages --no-install-recommends \
         build-essential \
         software-properties-common \
@@ -30,4 +28,5 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-change-held-
         ibverbs-providers
 
 
+USER nobody
 
