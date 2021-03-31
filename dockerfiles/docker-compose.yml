@@ -4,6 +4,6 @@ services:
   wav2vec:
     image: 161969600347.dkr.ecr.ap-northeast-2.amazonaws.com/zeroth/wav2vec/base:latest
     volumes:
-      - /home/users/tom/PRJ/fairseq:/workspace/fairseq
+      - ../:/workspace/fairseq
       - /mnt:/mnt
     tty: true

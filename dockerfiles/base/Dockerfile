@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-change-held-
         python${PYTHON_VERSION}-distutils \
         librdmacm1 \
         libibverbs1 \
-        ibverbs-providers
+        ibverbs-providers 
 
 RUN ln -s /usr/bin/python${PYTHON_VERSION} /usr/bin/python
 
@@ -54,8 +54,11 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 
 RUN pip install torch==${PYTORCH_VERSION}+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
+# wav2vec dependency
 RUN pip install soundfile
-
+RUN apt-get install -y libsndfile1 --allow-downgrades --allow-change-held-packages --no-install-recommends \
+        hydra-core==1.0.4 \
+        omegaconf==2.0.5
 
 
 
